@@ -1,59 +1,18 @@
-<div class="w3-white w3-text-grey w3-card-4">
+
+<div *ngFor="let persona of personas">
   <div class="w3-display-container">
-    <img src="assets/fotoperfil.jpg" style="width: 100%" alt="Diego" />
+    <br>
+    <img src="assets/fotoperfil.jpg" style="width: 100%" alt="Diego" class="rounded"/>
     <div class="w3-display-bottomleft w3-container w3-text-white">
-      <h2>Diego Medina</h2>
+      <h2>{{persona.nombre_usuario}}</h2>
     </div>
   </div>
-
+  <br>
   <div class="w3-container">
-    <br />
     <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>Desarrollador Full Stack Jr. </p>
     <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>Jujuy, AR </p>
-    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>correo@electronico.com </p>
+    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{persona.mail}}</p>
     <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>+549 388 1234567 </p>
-    <hr />
-
-    <p class="w3-large">
-      <b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Habilidades</b>
-    </p>
-    <h6>Visual Studio Code</h6>
-    <div class="w3-light-grey w3-round-xlarge w3-small">
-      <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width: 50%"> 50% </div>
-    </div>
-    <h6>Linux</h6>
-    <div class="w3-light-grey w3-round-xlarge w3-small">
-      <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width: 70%"> 70%</div>
-    </div>
-    <h6>Microsoft Office</h6>
-    <div class="w3-light-grey w3-round-xlarge w3-small">
-      <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width: 90%">90% </div>
-    </div>
-    <h6>Audio y Video</h6>
-    <div class="w3-light-grey w3-round-xlarge w3-small">
-      <div class="w3-container w3-center w3-round-xlarge w3-blue" style="width: 80%"> 80% </div>
-    </div>
-    <br />
-
-    <p class="w3-large w3-text-theme">
-      <b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Idiomas</b>
-    </p>
-    <p>Español</p>
-    <div class="w3-light-grey w3-round-xlarge">
-      <div
-        class="w3-round-xlarge w3-blue"
-        style="height: 24px; width: 100%"
-      ></div>
-    </div>
-    <p>English</p>
-    <div class="w3-light-grey w3-round-xlarge">
-      <div
-        class="w3-round-xlarge w3-blue"
-        style="height: 24px; width: 55%"
-      ></div>
-    </div>
-    <p>
-    <br/>
   </div>
 </div>
-<br />
+

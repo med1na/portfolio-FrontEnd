@@ -1,0 +1,100 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modificar experiencia laboral
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/"></button>
+        </div>
+
+        <!-- Formulario Laboral -->
+        <form [formGroup]="form" (ngSubmit)="onUpdate($event)" name="laboralForm" class="bg-white rounded p-5 seccion">
+            <div class="modal-body">
+                <!-- Ocultando el campo ID-->
+                <input type="hidden" id="idtrabajo" class="form-control" formControlName="idtrabajo" />
+                <!-- Campo: Trabajo -->
+                <div class="mb-3">
+                    <label for="laboralNombre" class="form-label">Nombre del cargo</label>
+                    <input type="text" class="form-control" id="laboralNombre" placeholder="Ingrese el nombre del cargo"
+                        formControlName="nombre_trabajo" [(ngModel)]="laboral.nombre_trabajo" [ngClass]="{
+              'is-invalid': NombreT?.errors && NombreT?.touched,
+              'is-valid': !NombreT?.errors && NombreT?.touched
+            }" />
+                    <div *ngIf="NombreT?.errors && NombreT?.touched">
+                        <p *ngIf="NombreT?.hasError('required')" class="text-danger">
+                            El nombre del cargo es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: Empresa -->
+                <div class="mb-3">
+                    <label for="empresaNombre" class="form-label">Nombre de la Empresa</label>
+                    <input type="text" class="form-control" id="empresaNombre"
+                        placeholder="Ingrese el nombre de la Empresa" formControlName="nombre_empresa"
+                        [(ngModel)]="laboral.nombre_empresa" [ngClass]="{
+              'is-invalid': NombreE?.errors && NombreE?.touched,
+              'is-valid': !NombreE?.errors && NombreE?.touched
+            }" />
+                    <div *ngIf="NombreE?.errors && NombreE?.touched">
+                        <p *ngIf="NombreE?.hasError('required')" class="text-danger">
+                            El nombre de la Empresa es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: fecha inicio-->
+                <div class="mb-3">
+                    <label for="fechaInicio" class="form-label">Fecha inicio del trabajo</label>
+                    <input type="text" class="form-control" id="fechaInicio"
+                        placeholder="Ingrese la fecha en la que ingreso a trabajar" formControlName="fecha_inicio"
+                        [(ngModel)]="laboral.fecha_inicio" [ngClass]="{
+              'is-invalid': FechaI?.errors && FechaI?.touched,
+              'is-valid': !FechaI?.errors && FechaI?.touched
+            }" />
+                    <div *ngIf="FechaI?.errors && FechaI?.touched">
+                        <p *ngIf="FechaI?.hasError('required')" class="text-danger">
+                            El campo fecha inicio es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: fecha fin -->
+                <div class="mb-3">
+                    <label for="fechaFin" class="form-label">Fecha final del trabajo</label>
+                    <input type="text" class="form-control" id="fechaInicio"
+                        placeholder="Ingrese la fecha en la que se desviculo del trabajo" formControlName="fecha_fin"
+                        [(ngModel)]="laboral.fecha_fin" [ngClass]="{
+              'is-invalid': FechaF?.errors && FechaF?.touched,
+              'is-valid': !FechaF?.errors && FechaF?.touched
+            }" />
+                    <div *ngIf="FechaF?.errors && FechaF?.touched">
+                        <p *ngIf="FechaF?.hasError('required')" class="text-danger">
+                            El campo fecha fin es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: descripcion -->
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripcion del trabajo realizado</label>
+                    <input type="text" class="form-control" id="descripcion"
+                        placeholder="Ingrese una breve descripcion de las tareas realizadas"
+                        formControlName="descripcion" [(ngModel)]="laboral.descripcion" [ngClass]="{
+              'is-invalid': DescripcionT?.errors && DescripcionT?.touched,
+              'is-valid': !DescripcionT?.errors && DescripcionT?.touched
+            }" />
+                    <div *ngIf="DescripcionT?.errors && DescripcionT?.touched">
+                        <p *ngIf="DescripcionT?.hasError('required')" class="text-danger">
+                            El campo descripcion es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

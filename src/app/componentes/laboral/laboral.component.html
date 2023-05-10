@@ -1,29 +1,36 @@
-    <div class="w3-container w3-card w3-white w3-margin-bottom">
-      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Experiencia Laboral</h2>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>Desarrollador Full Stack Jr. / ArgentinaPrograma.inti.gob.ar</b></h5>
-        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mayo 2023 - <span class="w3-tag w3-blue w3-round">Cursando</span></h6>
-        <p>#YoProgramo es un curso de la segunda etapa de Argentina Programa 4.0 en el que vas a adquirír las habilidades y herramientas para convertirte en un programador web full-stack junior.</p>
-        <hr>
-      </div>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>Analista Técnico / Agencia Territorial</b></h5>
-        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Abr 2000 - Dec 2022</h6>
-        <p>Perfil flexible y adaptable a las necesidades de cambio de los negocios, orientado a resultados con capacidad de liderazgo, negociación y trabajo en equipo.
-          Aplicación de mi experiencia en la Administración Pública, gestionando programas que administran proyectos orientados a la generación de nuevos empleos.</p>
-        <hr>
-      </div>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-        <hr>
-      </div>
-      <div class="w3-container">
-        <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+<!--Detalles de las experiencias laborales-->
+<div class="w3-container w3-card w3-white w3-margin-bottom">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="w3-text-grey w3-padding-16"><i
+        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Experiencia Laboral</h2>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#addLaboralModal">
+        <i class='far fa-plus-square' style='font-size:24px;color:rgba(18, 180, 3, 0.886)'></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="w3-container" *ngFor="let Laboral of laborales">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="w3-opacity"><b>{{Laboral.nombre_trabajo}} / {{Laboral.nombre_empresa}} </b></h5>
+  
+      <!-- Button  borrar-->
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#borrarLaboral">
+          <i class='far fa-trash-alt' style='font-size:18px;color:red' (click)="borrar(Laboral.idtrabajo)"></i>
+        </button>
+        <!-- Button  modificar -->
+        <button type="button" routerLink="editandoExpLaboral/{{Laboral.idtrabajo}}" class="btn btn-close-black">
+          <i class='fa fa-pencil-square-o' style='font-size:20px;color:rgb(0, 140, 255)'></i>
+        </button>
       </div>
     </div>
+    <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Laboral.fecha_inicio}} -
+      {{Laboral.fecha_fin}}</h6>
+    <p>{{Laboral.descripcion}}</p>
+    <hr>
+    </div>
+</div>
 
-  
+<!-- Modal para agregar Exp Laboral-->
+<app-modal-laboral-add></app-modal-laboral-add>
