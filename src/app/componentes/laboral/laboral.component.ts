@@ -23,7 +23,6 @@ export class LaboralComponent implements OnInit {
   }
 
   borrar(idtrabajo: number) {
-    console.log('El valor de idtrabajo es:', idtrabajo);
     if (idtrabajo != undefined) {
       this.sLaboral.delete(idtrabajo).subscribe(
         (data) => {

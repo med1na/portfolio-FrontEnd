@@ -67,7 +67,7 @@ export class ModalLaboralEditarComponent implements OnInit {
         this.ruta.navigate(['']);
       },
       (err) => {
-        alert('Error al modificar la Experiencia Laboral!');
+        alert('Error al modificar la experiencia laboral!');
       }
     );
   }

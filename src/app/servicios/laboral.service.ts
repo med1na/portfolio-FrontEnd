@@ -12,8 +12,8 @@ export class LaboralService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public update(laboral: any): Observable<any> {
-    return this.httpClient.put<any>(this.URL + '/laboral/', laboral);
+  public update(laboral: Laboral): Observable<any> {
+    return this.httpClient.put<any>(this.URL + '/laboral', laboral);
   }
 
   public detail(idtrabajo: number): Observable<any> {
@@ -21,11 +21,11 @@ export class LaboralService {
   }
 
   public lista(): Observable<Laboral[]> {
-    return this.httpClient.get<Laboral[]>(this.URL + '/laboral/');
+    return this.httpClient.get<Laboral[]>(this.URL + '/laboral');
   }
 
-  public save(labor: Laboral): Observable<any> {
-    return this.httpClient.post<any>(this.URL + '/laboral/', labor);
+  public save(laboral: Laboral): Observable<any> {
+    return this.httpClient.post<any>(this.URL + '/laboral', laboral);
   }
 
   public delete(idtrabajo: number): Observable<any> {
