@@ -1,0 +1,85 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modificar educacion
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" routerLink="/"></button>
+        </div>
+
+        <!-- Formulario Educacion -->
+        <form [formGroup]="form" (ngSubmit)="onUpdate($event)" name="educacionForm"
+            class="bg-white rounded p-5 seccion">
+            <div class="modal-body">
+                <!-- Ocultando el campo ID-->
+                <input type="hidden" id="ideducacion" class="form-control" formControlName="ideducacion" />
+                <!-- Campo: Titulo -->
+                <div class="mb-3">
+                    <label for="educacionTitulo" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="educacionTitulo"
+                        placeholder="Ingrese el titulo obtenido" formControlName="titulo" [(ngModel)]="educacion.titulo"
+                        [ngClass]="{
+              'is-invalid': Titulo?.errors && Titulo?.touched,
+              'is-valid': !Titulo?.errors && Titulo?.touched
+            }" />
+                    <div *ngIf="Titulo?.errors && Titulo?.touched">
+                        <p *ngIf="Titulo?.hasError('required')" class="text-danger">
+                            El título es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: Lugar de cursado -->
+                <div class="mb-3">
+                    <label for="lugarCursado" class="form-label">Lugar donde cursó</label>
+                    <input type="text" class="form-control" id="lugarCursado" placeholder="Ingrese el lugar donde cursó"
+                        formControlName="lugar_cursado" [(ngModel)]="educacion.lugar_cursado" [ngClass]="{
+              'is-invalid': LugarC?.errors && LugarC?.touched,
+              'is-valid': !LugarC?.errors && LugarC?.touched
+            }" />
+                    <div *ngIf="LugarC?.errors && LugarC?.touched">
+                        <p *ngIf="LugarC?.hasError('required')" class="text-danger">
+                            El lugar de cursado es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: fecha de cursado-->
+                <div class="mb-3">
+                    <label for="fechaCursado" class="form-label">Fecha de cursado</label>
+                    <input type="text" class="form-control" id="fechaCursado"
+                        placeholder="Ingrese el periodo de cursado" formControlName="fecha_cursado"
+                        [(ngModel)]="educacion.fecha_cursado" [ngClass]="{
+              'is-invalid': FechaC?.errors && FechaC?.touched,
+              'is-valid': !FechaC?.errors && FechaC?.touched
+            }" />
+                    <div *ngIf="FechaC?.errors && FechaC?.touched">
+                        <p *ngIf="FechaC?.hasError('required')" class="text-danger">
+                            El campo fecha de cursado es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Campo: descripcion -->
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Breve descripcion del titulo obtenido</label>
+                    <input type="text" class="form-control" id="descripcion"
+                        placeholder="Ingrese una breve descripcion del titulo obtenido" formControlName="descripcion"
+                        [(ngModel)]="educacion.descripcion" [ngClass]="{
+              'is-invalid': Descripcion?.errors && Descripcion?.touched,
+              'is-valid': !Descripcion?.errors && Descripcion?.touched
+            }" />
+                    <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                        <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                            El campo descripcion es requerido.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

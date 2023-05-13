@@ -1,1 +1,53 @@
-<p>modal-habilidad-add works!</p>
+<!-- Modal: Habilidad -->
+<div class="modal fade" id="addHabilidadModal" tabindex="-1" ria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar nueva habilidad</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="limpiar()"></button>
+            </div>
+
+            <!-- Formulario Habilidad -->
+            <form [formGroup]="form" (ngSubmit)="form.valid && onCreate($event)" name="habilidadForm">
+                <div class="modal-body">
+                    <!-- Campo: Tecnologia -->
+                    <div class="mb-3">
+                        <label for="tecnologiaNombre" class="form-label">Nombre de la habilidad</label>
+                        <input type="text" class="form-control" id="tecnologiaNombre" placeholder="Ingrese la habilidad"
+                            formControlName="tecnologia" [(ngModel)]="tecnologia"
+                            [ngClass]="{'is-invalid': Tec?.errors && Tec?.touched,'is-valid': !Tec?.errors && Tec?.touched}">
+                        <div *ngIf="Tec?.errors && Tec?.touched">
+                            <p *ngIf="Tec?.hasError('required')" class="text-danger">
+                                El habilidad es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Campo: Porcentaje -->
+                    <div class="mb-3">
+                        <label for="porcentajeTec" class="form-label">Porcentaje de la habilidad</label>
+                        <input type="text" class="form-control" id="porcentajeTec"
+                            placeholder="Ingrese el porcentaje de la habilidad" formControlName="porcentaje"
+                            [(ngModel)]="porcentaje"
+                            [ngClass]="{'is-invalid': Porcen?.errors && Porcen?.touched,'is-valid': !Porcen?.errors && Porcen?.touched}">
+                        <div *ngIf="Porcen?.errors && Porcen?.touched">
+                            <p *ngIf="Porcen?.hasError('required')" class="text-danger">
+                                El porcentaje es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-ligth" (click)="limpiar()">Limpiar</button>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

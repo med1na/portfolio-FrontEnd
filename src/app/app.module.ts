@@ -17,8 +17,10 @@ import { InterceptorService } from './servicios/interceptor.service';
 import { PersonaService } from './servicios/persona.service';
 import { HabilidadComponent } from './componentes/habilidad/habilidad.component';
 import { ModalLaboralAddComponent } from './modales/modal-laboral-add/modal-laboral-add.component';
-import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-habilidad-add.component';
+import { ModalEducacionAddComponent } from './modales/modal-educacion-add/modal-educacion-add.component';
 import { ModalLaboralEditarComponent } from './modales/modal-laboral-editar/modal-laboral-editar.component';
+import { ModalEducacionEditarComponent } from './modales/modal-educacion-editar/modal-educacion-editar.component';
+import { ModalHabilidadAddComponent } from './modales/modal-habilidad-add/modal-habilidad-add.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +34,10 @@ import { ModalLaboralEditarComponent } from './modales/modal-laboral-editar/moda
     PortfolioComponent,
     HabilidadComponent,
     ModalLaboralAddComponent,
-    ModalHabilidadAddComponent,
+    ModalEducacionAddComponent,
     ModalLaboralEditarComponent,
+    ModalEducacionEditarComponent,
+    ModalHabilidadAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,4 +21,17 @@ export class HabilidadComponent implements OnInit {
       this.habilidades = data;
     });
   }
+
+  borrar(idhabilidad: number) {
+    if (idhabilidad != undefined) {
+      this.sHabilidad.delete(idhabilidad).subscribe(
+        (data) => {
+          this.cargarHabilidad();
+        },
+        (err) => {
+          window.location.reload();
+        }
+      );
+    }
+  }
 }

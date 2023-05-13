@@ -1,10 +1,33 @@
+<!--Detalles de educacion recibida-->
 <div class="w3-container w3-card w3-white w3-margin-bottom">
-<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Educación</h2>
-
-  <div class="w3-container" class *ngFor="let educacion of educaciones">
-    <h5 class="w3-opacity"><b>{{ educacion.titulo }}</b></h5>
-    <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ educacion.fecha_cursado }}</h6>
-    <p>{{ educacion.descripcion }}</p>
-    <hr />
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="w3-text-grey w3-padding-16"><i
+        class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Educacion </h2>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#addEducacionModal">
+        <i class='fa fa-plus-square' style='font-size:24px;color:rgba(18, 180, 3, 0.886)'></i>
+      </button>
+    </div>
+  </div>
+  <div class="w3-container" *ngFor="let Educacion of educaciones">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="w3-opacity"><b>{{Educacion.titulo}} / {{Educacion.lugar_cursado}} </b></h5>
+      <!-- Button  borrar-->
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#borrarEducacion">
+          <i class='far fa-trash-alt' style='font-size:18px;color:red' (click)="borrar(Educacion.ideducacion)"></i>
+        </button>
+        <!-- Button  modificar -->
+        <button type="button" routerLink="editandoEducacion/{{Educacion.ideducacion}}" class="btn btn-close-black">
+          <i class='fa fa-pencil-square-o' style='font-size:20px;color:rgb(0, 140, 255)'></i>
+        </button>
+      </div>
+    </div>
+    <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Educacion.fecha_cursado}}</h6>
+    <p>{{Educacion.descripcion}}</p>
+    <hr>
   </div>
 </div>
+
+<!-- Modal para agregar Educacion-->
+<app-modal-educacion-add></app-modal-educacion-add>

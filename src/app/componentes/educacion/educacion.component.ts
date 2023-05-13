@@ -21,4 +21,17 @@ export class EducacionComponent implements OnInit {
       this.educaciones = data;
     });
   }
+
+  borrar(ideducacion: number) {
+    if (ideducacion != undefined) {
+      this.sEducacion.delete(ideducacion).subscribe(
+        (data) => {
+          this.cargarEducacion();
+        },
+        (err) => {
+          window.location.reload();
+        }
+      );
+    }
+  }
 }

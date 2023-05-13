@@ -8,10 +8,27 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class EducacionService {
-  constructor(private httpClient: HttpClient) {}
   URL: string = environment.apiURL;
+
+  constructor(private httpClient: HttpClient) {}
 
   public lista(): Observable<Educacion[]> {
     return this.httpClient.get<Educacion[]>(this.URL + '/educacion');
+  }
+
+  public update(educacion: Educacion): Observable<any> {
+    return this.httpClient.put<any>(this.URL + '/educacion', educacion);
+  }
+
+  public detail(ideducacion: number): Observable<any> {
+    return this.httpClient.get<any>(this.URL + `/educacion/${ideducacion}`);
+  }
+
+  public save(educacion: Educacion): Observable<any> {
+    return this.httpClient.post<any>(this.URL + '/educacion', educacion);
+  }
+
+  public delete(ideducacion: number): Observable<any> {
+    return this.httpClient.delete<any>(this.URL + `/educacion/${ideducacion}`);
   }
 }
