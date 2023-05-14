@@ -1,24 +1,24 @@
 export class Educacion {
   ideducacion!: number;
-  descripcion: string;
-  fecha_cursado: string;
-  lugar_cursado: string;
-  persona_idusuarios: string;
   titulo: string;
+  lugar_cursado: string;
+  fecha_cursado: string;
+  descripcion: string;
+  persona_idusuarios: string;
 
   constructor(
     ideducacion: number,
-    descripcion: string,
-    fecha_cursado: string,
+    titulo: string,
     lugar_cursado: string,
-    persona_idusuarios: string,
-    titulo: string
+    fecha_cursado: string,
+    descripcion: string,
+    persona_idusuarios: string
   ) {
     this.ideducacion = ideducacion;
-    this.descripcion = descripcion;
-    this.fecha_cursado = fecha_cursado;
-    this.lugar_cursado = lugar_cursado;
-    this.persona_idusuarios = persona_idusuarios;
     this.titulo = titulo;
+    this.lugar_cursado = lugar_cursado;
+    this.fecha_cursado = fecha_cursado;
+    this.descripcion = descripcion;
+    this.persona_idusuarios = persona_idusuarios;
   }
 }

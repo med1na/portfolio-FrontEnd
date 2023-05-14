@@ -11,10 +11,10 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 export class ModalEducacionAddComponent implements OnInit {
   form: FormGroup;
   ideducacion = 0;
-  descripcion = '';
-  fecha_cursado = '';
-  lugar_cursado = '';
   titulo = '';
+  lugar_cursado = '';
+  fecha_cursado = '';
+  descripcion = '';
   persona_idusuarios = '';
 
   constructor(
@@ -24,8 +24,8 @@ export class ModalEducacionAddComponent implements OnInit {
     //Se crea el grupo de controles para el formulario
     this.form = formBuilder.group({
       titulo: ['', [Validators.required]],
-      fecha_cursado: ['', [Validators.required]],
       lugar_cursado: ['', [Validators.required]],
+      fecha_cursado: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
     });
   }
@@ -69,11 +69,11 @@ export class ModalEducacionAddComponent implements OnInit {
   onCreate(event: Event): void {
     const educ = new Educacion(
       this.ideducacion,
+      this.titulo,
       this.lugar_cursado,
       this.fecha_cursado,
-      this.titulo,
-      this.persona_idusuarios,
-      this.descripcion
+      this.descripcion,
+      this.persona_idusuarios
     );
     this.educacionService.save(educ).subscribe(
       (data) => {
