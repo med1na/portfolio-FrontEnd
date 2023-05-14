@@ -54,9 +54,9 @@
 
                     <!-- Campo: descripcion -->
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripcion del curso realizado</label>
+                        <label for="descripcion" class="form-label">Descripción del curso realizado</label>
                         <input type="text" class="form-control" id="descripcion"
-                            placeholder="Ingrese una breve descripcion del curso realizado"
+                            placeholder="Ingrese una breve descripción del curso realizado"
                             formControlName="descripcion" [(ngModel)]="descripcion"
                             [ngClass]="{'is-invalid': DescripcionT?.errors && DescripcionT?.touched,'is-valid': !DescripcionT?.errors && DescripcionT?.touched}">
                         <div *ngIf="DescripcionT?.errors && DescripcionT?.touched">

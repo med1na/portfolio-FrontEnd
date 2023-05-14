@@ -27,7 +27,7 @@
                     <!-- Campo: Porcentaje -->
                     <div class="mb-3">
                         <label for="porcentajeTec" class="form-label">Porcentaje de la habilidad</label>
-                        <input type="text" class="form-control" id="porcentajeTec"
+                        <input type="number" class="form-control" id="porcentajeTec"
                             placeholder="Ingrese el porcentaje de la habilidad" formControlName="porcentaje"
                             [(ngModel)]="porcentaje"
                             [ngClass]="{'is-invalid': Porcen?.errors && Porcen?.touched,'is-valid': !Porcen?.errors && Porcen?.touched}">
@@ -35,11 +35,16 @@
                             <p *ngIf="Porcen?.hasError('required')" class="text-danger">
                                 El porcentaje es requerido.
                             </p>
+                            <p *ngIf="Porcen?.hasError('min')" class="text-danger">
+                                El porcentaje debe ser mayor a cero (0).
+                            </p>
+                            <p *ngIf="Porcen?.hasError('max')" class="text-danger">
+                                El porcentaje NO puede ser mayor a 100.
+                            </p>
                         </div>
                     </div>
 
                 </div>
-
 
                 <div class="modal-footer">
 

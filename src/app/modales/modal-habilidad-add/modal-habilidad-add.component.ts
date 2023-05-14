@@ -24,7 +24,10 @@ export class ModalHabilidadAddComponent implements OnInit {
     //Se crea el grupo de controles para el formulario
     this.form = formBuilder.group({
       tecnologia: ['', [Validators.required]],
-      porcentaje: ['', [Validators.required]],
+      porcentaje: [
+        '',
+        [Validators.required, Validators.min(1), Validators.max(100)],
+      ],
     });
   }
 

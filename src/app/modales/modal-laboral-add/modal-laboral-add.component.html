@@ -70,7 +70,7 @@
           <div class="mb-3">
             <label for="descripcion" class="form-label">Descripcion del trabajo realizado</label>
             <input type="text" class="form-control" id="descripcion"
-              placeholder="Ingrese una breve descripcion de las tareas realizadas" formControlName="descripcion"
+              placeholder="Ingrese una breve descripción de las tareas realizadas" formControlName="descripcion"
               [(ngModel)]="descripcion"
               [ngClass]="{'is-invalid': DescripcionT?.errors && DescripcionT?.touched,'is-valid': !DescripcionT?.errors && DescripcionT?.touched}">
             <div *ngIf="DescripcionT?.errors && DescripcionT?.touched">
